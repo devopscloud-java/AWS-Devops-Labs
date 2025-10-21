@@ -1,6 +1,6 @@
 # AWS DevOps Labs
 
-A collection of hands-on **AWS and DevOps projects** demonstrating practical implementation of various AWS services and automation tools.  
+A collection of hands-on **AWS and DevOps Assignments** demonstrating practical implementation of various AWS services and automation tools.  
 Each project folder includes setup guides, configurations, and verification steps.
 
 ---
