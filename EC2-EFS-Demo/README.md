@@ -1,88 +1,99 @@
-# AWS EFS Multi-OS Setup
+# AWS EC2, EBS, and EFS Implementation Project
 
-This project demonstrates how to **create and connect an Amazon Elastic File System (EFS)** to multiple EC2 instances running **different operating systems** — Ubuntu, Red Hat Enterprise Linux (RHEL), and Amazon Linux 2.
-
----
-
-## 🧠 Overview
-
-Amazon EFS (Elastic File System) is a fully managed, scalable, and shared NFS file system for use with AWS Cloud services and on-premises resources.  
-This setup allows multiple EC2 instances (with different OS) to access the same shared storage.
+This repository demonstrates the practical implementation of various AWS services including EC2, EBS, and EFS to manage web server requirements and storage solutions across multiple regions and operating systems.
 
 ---
 
-## ⚙️ Steps Covered in the Documentation
-
-1. **Create an EFS File System**
-   - Using AWS Console.
-   - Configure mount targets and security groups.
-
-2. **Launch 3 EC2 Instances**
-   - Ubuntu 22.04 LTS  
-   - Red Hat Enterprise Linux 9  
-   - Amazon Linux 2  
-
-3. **Install NFS Utilities**
-   - Install the necessary NFS client packages for each OS.
-
-4. **Mount EFS on Each Instance**
-   - Mount the shared EFS to `/mnt/efs`.
-
-5. **Verify Shared Access**
-   - Ensure all instances can read/write to the same shared directory.
-
-6. **(Optional)** Configure `/etc/fstab` to mount automatically on boot.
+## Table of Contents
+- [Project Overview](#project-overview)
+- [AWS Services Used](#aws-services-used)
+- [Tasks Performed](#tasks-performed)
+- [Setup Instructions](#setup-instructions)
+- [Screenshots / Diagrams](#screenshots--diagrams)
+- [Author](#author)
 
 ---
 
-## 📄 File Included
-
-| File | Description |
-|------|--------------|
-| **EFS_MultiOS_Setup.docx** | Step-by-step Word document for EFS setup across multiple EC2 operating systems. |
+## Project Overview
+The goal of this project is to demonstrate AWS cloud resource management, including the creation and replication of EC2 instances, managing EBS volumes, and configuring EFS for multiple EC2 instances with different OS distributions. This project can be used as a reference for implementing web server infrastructure with scalable and reliable storage.
 
 ---
 
-## 🧩 AWS Services Used
-
-- **Amazon EFS** — for shared file storage  
-- **Amazon EC2** — virtual servers for different OS  
-- **Amazon VPC** — for networking and security groups  
-
----
-
-## 🧪 Verification
-
-After mounting, create a test file on one instance:
-```bash
-sudo touch /mnt/efs/test.txt
-```
-
-Check from other instances:
-```bash
-ls /mnt/efs
-```
-
-✅ You should see the same file on all three — confirming shared storage.
+## AWS Services Used
+- **Amazon EC2** – Launch and manage virtual servers.
+- **Amazon Machine Image (AMI)** – Preconfigured virtual machine image.
+- **Amazon EBS** – Block storage for EC2 instances.
+- **Amazon EFS** – Elastic file system for shared storage.
+- **Regions Covered**:
+  - US-East-1 (N. Virginia)
+  - US-West-2 (Oregon)
 
 ---
 
-## 🧰 Tools & Technologies
-- AWS Management Console / CLI
-- NFS Protocol
-- Linux command line
-- SSH
+## Tasks Performed
+
+### 1. EC2 Instance Creation in US-East-1 (N. Virginia)
+- Launched an EC2 instance with Linux OS.
+- Configured web server requirements using a custom AMI.
+- Verified web server deployment.
+
+### 2. EC2 Instance Replication in US-West-2 (Oregon)
+- Copied the AMI from the US-East-1 instance.
+- Launched a new EC2 instance in US-West-2 using the copied AMI.
+
+### 3. EBS Volume Management in US-East-1
+- Created two EBS volumes and attached them to the EC2 instance.
+- Detached and deleted one EBS volume.
+- Extended the size of the remaining volume.
+- Took a backup (snapshot) of the modified EBS volume.
+
+### 4. EFS Creation and Connection
+- Created an Elastic File System (EFS).
+- Connected the EFS to three EC2 instances running different OS distributions:
+  - Ubuntu
+  - Red Hat Linux
+  - Amazon Linux 2
+- Verified read/write access across all instances.
 
 ---
 
-## 👩‍💻 Author
+## Setup Instructions
 
-**Yellamma Mittagouni**  
+1. **Launch EC2 Instance**
+   - Go to the EC2 Dashboard.
+   - Select the desired Linux OS.
+   - Configure security groups for web server access (HTTP/HTTPS).
+
+2. **Create and Attach EBS Volumes**
+   - Navigate to the EBS dashboard.
+   - Create volumes and attach to EC2 instances.
+   - Detach and delete unnecessary volumes.
+   - Modify and extend volume size as needed.
+
+3. **Replicate EC2 in Another Region**
+   - Create an AMI of the original instance.
+   - Copy AMI to another region.
+   - Launch a new EC2 instance from the copied AMI.
+
+4. **Configure EFS**
+   - Create a new EFS in the desired VPC.
+   - Mount the EFS to multiple EC2 instances using NFS.
+   - Test file operations across instances.
+
+---
+
+## Screenshots / Diagrams
+*(Add screenshots of EC2 dashboard, EBS volume attachment, EFS mount points, etc.)*
+
+---
+
+## Author
+**Renuka Devi**  
 AWS Certified DevOps Engineer  
-📍 Bangalore  
-📧 [yellamma.187@gmail.com](mailto:yellamma.187@gmail.com)
+Email: [your-email@example.com]  
+Location: Bangalore, India
 
 ---
 
-## ⭐ Contribution
-If you found this helpful, feel free to **star ⭐ this repo** or **fork it** to build your own AWS automation.
+**Repository Status:** Active / Learning Project  
+
