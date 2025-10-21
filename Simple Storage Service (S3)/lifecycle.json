@@ -1,1 +1,19 @@
+{
+  "Rules": [
+    {
+      "ID": "TransitionAndExpirationRule",
+      "Status": "Enabled",
+      "Filter": {},
+      "Transitions": [
+        {
+          "Days": 60,
+          "StorageClass": "STANDARD_IA"
+        }
+      ],
+      "Expiration": {
+        "Days": 200
+      }
+    }
+  ]
+}
 
