@@ -1,7 +1,7 @@
 # AWS S3 Hands-On Project
 
 
-This repository demonstrates practical tasks performed using **Amazon S3**, including file storage, versioning, static website hosting, and lifecycle management.
+This directory demonstrates practical tasks performed using **Amazon S3**, including file storage, versioning, static website hosting, and lifecycle management.
 
 ---
 
