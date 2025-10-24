@@ -1,6 +1,6 @@
 AWS SQS & SES Hands-On
 
-This repository contains hands-on tasks for AWS Simple Queue Service (SQS) and Simple Email Service (SES).
+This directory contains hands-on tasks for AWS Simple Queue Service (SQS) and Simple Email Service (SES).
 
 Task 1: Create a FIFO SQS Queue and Send Messages
 
